@@ -1,6 +1,6 @@
 # Cubeplus
 
-Software function display ：https://handsomexiu.gihub.io/cubeplus/
+Software function display ：https://handsomexiu.github.io/cubeplus/
 
 ## Environment Build
 
