@@ -1,0 +1,65 @@
+<div v-resize="resize">
+    <v-btn fixed right top fab color="primary" style="user-select: none;"
+        :style="{width: size * 0.9 + 'px', height: size * 0.9 + 'px', 'margin-right': width / 2 - Math.min(size * 4, width / 2) + 'px'}"
+        @click="state = !state">
+        <v-icon :size="size * 0.6">
+            settings
+        </v-icon>
+    </v-btn>
+    <v-bottom-sheet v-model="state">
+        <v-card text style="margin: auto;">
+            <v-container fluid grid-list-md text-xs-center :style="{width: Math.min(size * 8, width) + 'px'}">
+                <v-subheader>
+                    SOLVING ALGORITHM
+                </v-subheader>
+                <v-flex xs12 :style="{
+                    'padding-left': size / 2 + 'px',
+                }">
+                    <v-radio-group v-model="config.solverId">
+                        <v-radio label="Kociemba's Algorithm" :value="1" off-icon="radio_button_unchecked"  on-icon="radio_button_checked"></v-radio>
+                        <v-radio label="Layer By Layer Method" :value="0" off-icon="radio_button_unchecked" on-icon="radio_button_checked" :style="{ 'margin-top' : size * 0.2 + 'px'}"></v-radio>
+                    </v-radio-group>
+                </v-flex>
+                <v-subheader>
+                    TWIST SPEED
+                </v-subheader>
+                <v-flex xs12 :style="{
+                    'padding-left': size / 2 + 'px',
+                    'padding-right': size / 2 + 'px',
+                    'padding-top': size * 0.2 + 'px',
+                    'font-size': (size * 0.3) + 'px',
+                    'height':size + 'px'
+                }">
+                    <vue-slider v-model="config.speed" thumb-label="always" :max="5" :min="1" :marks="true">
+                    </vue-slider>
+                </v-flex>
+                <v-subheader>
+                    SCRAMBLE LENGTH
+                </v-subheader>
+                <v-flex xs12 :style="{
+                    'padding-left': size / 2 + 'px',
+                    'padding-right': size / 2 + 'px',
+                    'padding-top': size * 0.2 + 'px',
+                    'font-size': (size * 0.3) + 'px',
+                    'height':size + 'px'
+                }">
+                    <vue-slider v-model="config.scramble_steps" thumb-label="always" :max="40" :min="0"
+                        :marks="[0,10,20,30,40]"></vue-slider>
+                </v-flex>
+                <v-subheader>
+                    SENSITIVITY
+                </v-subheader>
+                <v-flex xs12 :style="{
+                    'padding-left': size / 2 + 'px',
+                    'padding-right': size / 2 + 'px',
+                    'padding-top': size * 0.2 + 'px',
+                    'font-size': (size * 0.3) + 'px',
+                    'height':size + 'px'
+                }">
+                    <vue-slider v-model="config.sensibility" thumb-label="always" :max="100" :min="0"
+                        :marks="[0,25,50,75,100]"></vue-slider>
+                </v-flex>
+            </v-container>
+        </v-card>
+    </v-bottom-sheet>
+</div>
